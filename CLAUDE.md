@@ -34,6 +34,7 @@
 
 - **Button** (`src/components/Button/Button.tsx`): варіанти `primary`, `secondary`, розміри `md`, `lg`, стан `disabled` з `disabledReason`. Історія: `Components/Button`.
 - **FormField** (`src/components/FormField/FormField.tsx`): текстове поле з підписом над ним. Пропси `label`, `error`, `disabled`, `defaultValue` і звичайні пропси `<input>`. Стани: default, hover, focus, заповнене, помилка, disabled. Межа `ink-muted`, помилка `danger`. Історія: `Components/FormField`.
+- **WorkCard** (`src/components/WorkCard/WorkCard.tsx`): картка роботи, уся є посиланням. Пропси `title`, `description`, `cover` (імпорт з `src/assets`), `coverAlt`, `href`. Стани: default, hover, focus. Обкладинка `aspect-cover`, кути `rounded-card`. Історія: `Components/WorkCard`.
 
 ## Правила
 
