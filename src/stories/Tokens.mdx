@@ -1,0 +1,114 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Tokens" />
+
+# Токени
+
+Усі значення беруться зі змінних у блоці `@theme` (`src/app/globals.css`). Тут їх не вписано вручну: змінив токен — ця сторінка оновилась сама.
+
+## Кольори
+
+<ColorPalette>
+  <ColorItem title="canvas" subtitle="Фон сторінки" colors={["var(--color-canvas)"]} />
+  <ColorItem title="surface" subtitle="Поверхня великих блоків" colors={["var(--color-surface)"]} />
+  <ColorItem title="line" subtitle="Декоративні розділювачі" colors={["var(--color-line)"]} />
+  <ColorItem title="accent" subtitle="Заливки кнопок, декор" colors={["var(--color-accent)"]} />
+  <ColorItem title="accent-text" subtitle="Акцентний текст" colors={["var(--color-accent-text)"]} />
+  <ColorItem title="ink" subtitle="Основний текст" colors={["var(--color-ink)"]} />
+  <ColorItem title="ink-muted" subtitle="Меню, підписи" colors={["var(--color-ink-muted)"]} />
+  <ColorItem title="on-accent" subtitle="Текст на accent" colors={["var(--color-on-accent)"]} />
+  <ColorItem title="danger" subtitle="Помилка" colors={["var(--color-danger)"]} />
+  <ColorItem title="border-interactive" subtitle="Рамки полів і кнопок" colors={["var(--color-border-interactive)"]} />
+  <ColorItem title="focus-ring" subtitle="Контур фокуса" colors={["var(--color-focus-ring)"]} />
+  <ColorItem title="card-1 / 2 / 3" subtitle="Папки проєктів" colors={["var(--color-card-1)", "var(--color-card-2)", "var(--color-card-3)"]} />
+  <ColorItem title="card-inner-1 / 2 / 3" subtitle="Внутрішня частина папок" colors={["var(--color-card-inner-1)", "var(--color-card-inner-2)", "var(--color-card-inner-3)"]} />
+</ColorPalette>
+
+## Шрифти й шкала тексту
+
+<div className="sb-unstyled font-body text-ink flex flex-col gap-6">
+  <div>
+    <div className="text-card-caption text-ink-muted">font-body (Inter)</div>
+    <div className="font-body text-greeting">Дизайн, що працює: Аа Бб Вв Її Єє Ґґ 0123</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">font-heading (Manrope, лише H1)</div>
+    <div className="font-heading text-h1">Дизайн, що працює: Аа Бб Вв Її Єє Ґґ</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-logo</div>
+    <div className="text-logo">Design Flow</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-h1 (телефон)</div>
+    <div className="font-heading text-h1">Заголовок першого екрана</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-h1-md (планшет)</div>
+    <div className="font-heading text-h1-md">Заголовок першого екрана</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-h1-lg (десктоп)</div>
+    <div className="font-heading text-h1-lg">Заголовок першого екрана</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-greeting</div>
+    <div className="text-greeting">Привіт, я дизайнерка інтерфейсів</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-lead</div>
+    <div className="text-lead">Основний опис: коротко про те, чим я займаюся й для кого працюю.</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-menu</div>
+    <div className="text-menu">Проєкти · Про мене · Контакти</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-button</div>
+    <div className="text-button">Написати мені</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-card-title</div>
+    <div className="text-card-title">Назва проєкту</div>
+  </div>
+  <div>
+    <div className="text-card-caption text-ink-muted">text-card-caption</div>
+    <div className="text-card-caption">Підпис до картки</div>
+  </div>
+</div>
+
+## Радіуси
+
+<div className="sb-unstyled font-body flex flex-wrap gap-6">
+  <div className="flex flex-col gap-2">
+    <div className="h-24 w-40 border border-border-interactive bg-surface rounded-control" />
+    <span className="text-card-caption text-ink-muted">rounded-control</span>
+  </div>
+  <div className="flex flex-col gap-2">
+    <div className="h-24 w-40 border border-border-interactive bg-surface rounded-card" />
+    <span className="text-card-caption text-ink-muted">rounded-card</span>
+  </div>
+</div>
+
+## Пропорції
+
+<div className="sb-unstyled font-body flex flex-wrap items-end gap-6">
+  <div className="flex w-64 flex-col gap-2">
+    <div className="aspect-cover w-full border border-border-interactive bg-surface rounded-card" />
+    <span className="text-card-caption text-ink-muted">aspect-cover</span>
+  </div>
+  <div className="flex w-48 flex-col gap-2">
+    <div className="aspect-portrait w-full border border-border-interactive bg-surface rounded-card" />
+    <span className="text-card-caption text-ink-muted">aspect-portrait</span>
+  </div>
+</div>
+
+## Відступи
+
+<div className="sb-unstyled font-body flex flex-wrap items-end gap-6">
+  <div className="flex flex-col items-center gap-2"><div className="size-2 bg-accent" /><span className="text-card-caption text-ink-muted">2</span></div>
+  <div className="flex flex-col items-center gap-2"><div className="size-3 bg-accent" /><span className="text-card-caption text-ink-muted">3</span></div>
+  <div className="flex flex-col items-center gap-2"><div className="size-4 bg-accent" /><span className="text-card-caption text-ink-muted">4</span></div>
+  <div className="flex flex-col items-center gap-2"><div className="size-6 bg-accent" /><span className="text-card-caption text-ink-muted">6</span></div>
+  <div className="flex flex-col items-center gap-2"><div className="size-8 bg-accent" /><span className="text-card-caption text-ink-muted">8</span></div>
+</div>
