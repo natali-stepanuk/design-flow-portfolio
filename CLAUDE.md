@@ -30,7 +30,10 @@
 
 ## Компоненти
 
-Заповнимо далі.
+Кожен компонент лежить у `src/components/<Назва>/`, поруч історія `<Назва>.stories.tsx` (одна історія з Controls і docs).
+
+- **Button** (`src/components/Button/Button.tsx`): варіанти `primary`, `secondary`, розміри `md`, `lg`, стан `disabled` з `disabledReason`. Історія: `Components/Button`.
+- **FormField** (`src/components/FormField/FormField.tsx`): текстове поле з підписом над ним. Пропси `label`, `error`, `disabled`, `defaultValue` і звичайні пропси `<input>`. Стани: default, hover, focus, заповнене, помилка, disabled. Межа `ink-muted`, помилка `danger`. Історія: `Components/FormField`.
 
 ## Правила
 
