@@ -1,3 +1,104 @@
 @import "tailwindcss";
 
-/* Design tokens (colors, fonts, spacing) are added in the next step. */
+/*
+  Дизайн-токени Design Flow (v3, див. docs/tokens.md).
+  Назви — за роллю, не за кольором.
+  Відступи окремо не оголошуємо: беремо кроки 8, 12, 16, 24, 32 px
+  (у Tailwind це числа 2, 3, 4, 6, 8, наприклад p-4).
+*/
+@theme {
+  /* ---------- Кольори: скидаємо стандартну палітру Tailwind ---------- */
+  --color-*: initial;
+
+  --color-canvas: #f5f1ec; /* фон сторінки */
+  --color-surface: #e5d8cb; /* поверхня для великих блоків; не для портрета (він без підкладки, на canvas) */
+  --color-line: #c5b7ab; /* лише декоративні розділювачі, не рамки елементів */
+  --color-accent: #e57d58; /* кораловий: заливки кнопок, декор; не для тексту */
+  --color-accent-text: #a6381c; /* акцентний текст, рамка вторинної кнопки */
+  --color-ink: #24211f; /* основний текст */
+  --color-ink-muted: #55504c; /* меню, підписи */
+  --color-on-accent: #24211f; /* текст на заливці accent */
+  --color-danger: #b3123f; /* текст помилки й межа поля в стані помилки */
+  --color-border-interactive: #55504c; /* рамки інтерактивних елементів і полів */
+  --color-focus-ring: #a6381c; /* контур фокуса */
+
+  /* Попередні кольори папок проєктів (уточнюються в розробці компонента) */
+  --color-card-1: #e4c7b5;
+  --color-card-2: #d6d5dd;
+  --color-card-3: #e5ddd1;
+  --color-card-inner-1: #f1e2d8;
+  --color-card-inner-2: #e9e9ed;
+  --color-card-inner-3: #f1ede6;
+
+  /* ---------- Шрифти ---------- */
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-manrope), var(--font-inter), system-ui, sans-serif;
+
+  /* ---------- Текст: розмір + висота рядка, трекінг, жирність ---------- */
+  --text-*: initial;
+
+  --text-logo: 24px;
+  --text-logo--line-height: 32px;
+  --text-logo--letter-spacing: 0em;
+  --text-logo--font-weight: 600;
+
+  /* H1 адаптивний: телефон → планшет → десктоп. Шрифт Manrope: клас font-heading */
+  --text-h1: 32px;
+  --text-h1--line-height: 36px;
+  --text-h1--letter-spacing: 0em;
+  --text-h1--font-weight: 700;
+
+  --text-h1-md: 40px;
+  --text-h1-md--line-height: 46px;
+  --text-h1-md--letter-spacing: 0em;
+  --text-h1-md--font-weight: 700;
+
+  --text-h1-lg: 52px;
+  --text-h1-lg--line-height: 60px;
+  --text-h1-lg--letter-spacing: 0em;
+  --text-h1-lg--font-weight: 700;
+
+  --text-greeting: 20px;
+  --text-greeting--line-height: 28px;
+  --text-greeting--letter-spacing: 0em;
+  --text-greeting--font-weight: 600;
+
+  --text-lead: 18px; /* основний опис */
+  --text-lead--line-height: 28px;
+  --text-lead--letter-spacing: 0em;
+  --text-lead--font-weight: 400;
+
+  --text-menu: 16px;
+  --text-menu--line-height: 24px;
+  --text-menu--letter-spacing: 0em;
+  --text-menu--font-weight: 500;
+
+  --text-button: 16px;
+  --text-button--line-height: 24px;
+  --text-button--letter-spacing: 0em;
+  --text-button--font-weight: 600;
+
+  --text-card-title: 18px;
+  --text-card-title--line-height: 28px;
+  --text-card-title--letter-spacing: 0em;
+  --text-card-title--font-weight: 600;
+
+  --text-card-caption: 14px;
+  --text-card-caption--line-height: 20px;
+  --text-card-caption--letter-spacing: 0em;
+  --text-card-caption--font-weight: 400;
+
+  /* ---------- Радіуси ---------- */
+  --radius-*: initial;
+
+  --radius-control: 8px; /* кнопки й поля */
+  --radius-card: 12px; /* картки */
+
+  /* ---------- Пропорції картинок (стандартні aspect-* лишаються) ---------- */
+  --aspect-cover: 2 / 1; /* обкладинка проєкту, попередньо */
+  --aspect-portrait: 4 / 5; /* портрет: лише орієнтир, фото без обрізання, якщо це псує композицію */
+
+  /* ---------- Лише для сторінок, не для компонентів ---------- */
+  --container-page: 1290px; /* макс. ширина контенту (max-w-page) */
+  --spacing-section: 128px; /* відстань між великими секціями на десктопі */
+}
