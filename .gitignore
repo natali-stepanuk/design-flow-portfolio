@@ -50,3 +50,6 @@ storybook-static
 
 .vercel
 .env*
+
+# Vercel recovery codes
+vercel-recovery-codes-*.txt
