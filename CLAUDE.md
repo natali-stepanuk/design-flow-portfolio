@@ -35,6 +35,7 @@
 - **Button** (`src/components/Button/Button.tsx`): варіанти `primary`, `secondary`, розміри `md`, `lg`, стан `disabled` з `disabledReason`. Історія: `Components/Button`.
 - **FormField** (`src/components/FormField/FormField.tsx`): текстове поле з підписом над ним. Пропси `label`, `error`, `disabled`, `defaultValue` і звичайні пропси `<input>`. Стани: default, hover, focus, заповнене, помилка, disabled. Межа `ink-muted`, помилка `danger`. Історія: `Components/FormField`.
 - **WorkCard** (`src/components/WorkCard/WorkCard.tsx`): картка роботи, уся є посиланням. Пропси `title`, `description`, `cover` (імпорт з `src/assets`), `coverAlt`, `href`. Стани: default, hover, focus. Обкладинка `aspect-cover`, кути `rounded-card`. Історія: `Components/WorkCard`.
+- **Navigation** (`src/components/Navigation/Navigation.tsx`): меню сайту. Пропси `items` (`{ id, label, href }`), `activeId`, `label`, `openLabel`, `closeLabel`. Стани пункту: default, hover, focus, активний (`aria-current="page"`). Нижче `md` меню згортається в кнопку, відкрите лежить поверх контенту й закривається Escape, кліком поза меню або вибором пункту. Історія: `Components/Navigation`.
 
 ## Правила
 
