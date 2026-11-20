@@ -26,7 +26,7 @@ export interface NavigationProps {
 }
 
 const itemBase =
-  "relative block w-fit rounded-control px-4 py-4 font-body text-menu " +
+  "group relative block w-fit rounded-control px-4 py-4 font-body text-menu " +
   "transition-colors duration-200 hover:text-accent-text " +
   "focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus-ring";
 
@@ -39,7 +39,8 @@ const itemActive = "text-accent-text";
  * половину розміру) робить його круглим без довільних значень.
  */
 const dot =
-  "pointer-events-none absolute inset-x-0 bottom-2 mx-auto size-0 rounded-card border-3 border-accent";
+  "pointer-events-none absolute inset-x-0 bottom-2 mx-auto size-0 rounded-card border-3 border-accent " +
+  "transition-opacity duration-200";
 
 /**
  * Навігація сайту. На широкому екрані пункти стоять у рядок. На вузькому меню
@@ -109,7 +110,10 @@ export function Navigation({
                 className={`${itemBase} ${isActive ? itemActive : itemDefault}`}
               >
                 {item.label}
-                {isActive ? <span aria-hidden="true" className={dot} /> : null}
+                <span
+                  aria-hidden="true"
+                  className={`${dot} ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                />
               </a>
             </li>
           );

@@ -6,8 +6,8 @@ export interface WorkCardProps {
   title: string;
   /** Короткий опис роботи, один-два речення. */
   description: string;
-  /** Обкладинка: картинка, імпортована з теки `assets`. */
-  cover: StaticImageData;
+  /** Обкладинка: картинка, імпортована з теки `assets`. Без неї показується порожня підкладка. */
+  cover?: StaticImageData;
   /** Опис обкладинки для скрінрідера. Порожній рядок, якщо картинка суто декоративна. */
   coverAlt?: string;
   /** Адреса сторінки роботи. Уся картка є посиланням. */
@@ -34,14 +34,16 @@ export function WorkCard({
         "focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
       }
     >
-      <div className="relative aspect-cover w-full">
-        <Image
-          src={cover}
-          alt={coverAlt}
-          fill
-          sizes="(min-width: 768px) 50vw, 100vw"
-          className="object-cover"
-        />
+      <div className="relative aspect-cover w-full bg-card-inner-1">
+        {cover ? (
+          <Image
+            src={cover}
+            alt={coverAlt}
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
+        ) : null}
       </div>
       <div className="flex flex-col gap-2 p-4">
         <h3 className="text-card-title group-hover:underline">{title}</h3>

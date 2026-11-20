@@ -22,6 +22,7 @@ import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
   <ColorItem title="focus-ring" subtitle="Контур фокуса" colors={["var(--color-focus-ring)"]} />
   <ColorItem title="card-1 / 2 / 3" subtitle="Папки проєктів" colors={["var(--color-card-1)", "var(--color-card-2)", "var(--color-card-3)"]} />
   <ColorItem title="card-inner-1 / 2 / 3" subtitle="Внутрішня частина папок" colors={["var(--color-card-inner-1)", "var(--color-card-inner-2)", "var(--color-card-inner-3)"]} />
+  <ColorItem title="logo-*" subtitle="Лише для логотипа: deep, light, glow, leaf-light, leaf-dark, sheen" colors={["var(--color-logo-deep)", "var(--color-logo-light)", "var(--color-logo-glow)", "var(--color-logo-leaf-light)", "var(--color-logo-leaf-dark)", "var(--color-logo-sheen)"]} />
 </ColorPalette>
 
 ## Шрифти й шкала тексту
@@ -101,6 +102,18 @@ import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
     <div className="aspect-portrait w-full border border-border-interactive bg-surface rounded-card" />
     <span className="text-card-caption text-ink-muted">aspect-portrait</span>
   </div>
+</div>
+
+## Портрет
+
+<div className="sb-unstyled font-body text-card-caption text-ink-muted flex flex-col gap-2">
+  <div>
+    <span className="text-ink">max-w-portrait</span> = <code>--container-portrait</code>: максимальна ширина фото на першому екрані (560 px).
+  </div>
+  <div>
+    <span className="text-ink">--portrait-fade-from</span>: з якої висоти фото починає розчинятися донизу (65%).
+  </div>
+  <div className="w-full max-w-portrait h-24 bg-surface" style={{ maskImage: "linear-gradient(to bottom, black var(--portrait-fade-from), transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black var(--portrait-fade-from), transparent 100%)" }} />
 </div>
 
 ## Відступи

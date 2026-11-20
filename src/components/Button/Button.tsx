@@ -14,6 +14,8 @@ export interface ButtonProps
   disabled?: boolean;
   /** Пояснення під вимкненою кнопкою, чому вона недоступна. Зв'язане через aria-describedby. */
   disabledReason?: string;
+  /** Якщо задано, кнопка стає посиланням (`<a>`) з тим самим виглядом. Не поєднується з `disabled`. */
+  href?: string;
 }
 
 const base =
@@ -46,6 +48,7 @@ export function Button({
   size = "md",
   disabled = false,
   disabledReason,
+  href,
   type = "button",
   className = "",
   onClick,
@@ -62,6 +65,17 @@ export function Button({
     }
     onClick?.(event);
   };
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={`${base} ${variants[variant]} ${sizes[size]} ${className}`.trim()}
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
     <div className="inline-flex flex-col items-start gap-2">

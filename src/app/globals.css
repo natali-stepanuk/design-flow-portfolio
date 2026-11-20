@@ -30,6 +30,14 @@
   --color-card-inner-2: #e9e9ed;
   --color-card-inner-3: #f1ede6;
 
+  /* Логотип Design Flow: градієнти знака й напису (лише для компонента Logo) */
+  --color-logo-deep: #b5502f; /* найтемніший відтінок переливу */
+  --color-logo-light: #ffb48f; /* світліший відтінок переливу */
+  --color-logo-glow: #ffd9c0; /* найсвітліший відтінок напису */
+  --color-logo-leaf-light: #f7dccb; /* світла частина «листка» знака */
+  --color-logo-leaf-dark: #e5c8b6; /* темніша частина «листка», кінці роздільника */
+  --color-logo-sheen: #ffffff; /* відблиск */
+
   /* ---------- Шрифти ---------- */
   --font-body: var(--font-inter), system-ui, sans-serif;
   --font-heading: var(--font-manrope), var(--font-inter), system-ui, sans-serif;
@@ -100,5 +108,126 @@
 
   /* ---------- Лише для сторінок, не для компонентів ---------- */
   --container-page: 1290px; /* макс. ширина контенту (max-w-page) */
+
+  /* ---------- Портрет (компонент Portrait) ---------- */
+  --container-portrait: 560px; /* макс. ширина фото на першому екрані (max-w-portrait) */
+  --portrait-fade-from: 65%; /* з якої висоти фото починає розчинятися донизу */
   --spacing-section: 128px; /* відстань між великими секціями на десктопі */
+}
+
+/* ---------- Logo (перенесено без змін із тренувального портфоліо) ---------- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
+  font-family: var(--font-heading);
+}
+
+.logo__mark {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  transition: transform 0.5s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.logo:hover .logo__mark {
+  transform: rotate(-6deg) scale(1.06);
+}
+
+.logo__divider {
+  width: 2px;
+  height: 44px;
+  flex: none;
+  border-radius: 2px;
+  background: linear-gradient(
+    var(--color-logo-leaf-dark),
+    var(--color-accent),
+    var(--color-logo-leaf-dark)
+  );
+}
+
+.logo__text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.logo__name {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+.logo__flow {
+  background:
+    linear-gradient(
+        105deg,
+        transparent 38%,
+        color-mix(in srgb, var(--color-logo-sheen) 95%, transparent) 50%,
+        transparent 62%
+      )
+      160% 0 / 250% 100% no-repeat,
+    linear-gradient(
+        90deg,
+        var(--color-logo-deep),
+        var(--color-accent),
+        var(--color-logo-light),
+        var(--color-logo-glow),
+        var(--color-logo-light),
+        var(--color-accent),
+        var(--color-logo-deep)
+      )
+      0 0 / 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: logo-shimmer 4.5s linear infinite;
+}
+
+@keyframes logo-shimmer {
+  0% { background-position: 160% 0, 0% 0; }
+  40% { background-position: -60% 0, 80% 0; }
+  100% { background-position: -60% 0, 200% 0; }
+}
+
+.logo__tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--color-ink);
+}
+
+.logo__tag i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* Кольори елементів SVG-знака: через класи, щоб брати їх із токенів */
+.logo__stop--deep { stop-color: var(--color-logo-deep); }
+.logo__stop--accent { stop-color: var(--color-accent); }
+.logo__stop--light { stop-color: var(--color-logo-light); }
+.logo__stop--leaf-light { stop-color: var(--color-logo-leaf-light); }
+.logo__stop--leaf-dark { stop-color: var(--color-logo-leaf-dark); }
+.logo__stop--sheen { stop-color: var(--color-logo-sheen); }
+.logo__fill--leaf-light { fill: var(--color-logo-leaf-light); }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo__flow { animation: none; }
+}
+
+/* ---------- Portrait: нижній край фото розчиняється у фон ---------- */
+.portrait {
+  -webkit-mask-image: linear-gradient(to bottom, black var(--portrait-fade-from), transparent 100%);
+  mask-image: linear-gradient(to bottom, black var(--portrait-fade-from), transparent 100%);
 }
